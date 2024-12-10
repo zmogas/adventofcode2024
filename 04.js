@@ -67,3 +67,21 @@ for (let i = 0; i < matrix.length - 3; i++) {
 }
 
 console.log("Answer A:", xmas);
+
+const MAS = "MAS";
+const SAM = "SAM";
+
+xmas = 0;
+
+// From top to the right, composing X
+for (let i = 0; i < matrix.length - 2; i++) {
+  for (let j = 0; j < matrix[i].length - 2; j++) {
+    const mas = matrix[i][j] + matrix[i + 1][j + 1] + matrix[i + 2][j + 2];
+    const sam = matrix[i][j + 2] + matrix[i + 1][j + 1] + matrix[i + 2][j];
+    if ((mas === MAS || mas === SAM) && (sam === MAS || sam === SAM)) {
+      xmas++;
+    }
+  }
+}
+
+console.log("Answer B:", xmas);
